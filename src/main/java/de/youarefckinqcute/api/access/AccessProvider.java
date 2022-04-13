@@ -14,6 +14,9 @@ public class AccessProvider {
         this.simpleServer = simpleServer;
     }
 
+    /**
+     * DONT FORGET TO LOAD THE ENTITES IN DER CONFIG
+     */
     static List<AccessEntity> entities = new ArrayList<>();
 
     public boolean check(String key, String database, String collection, String method) {
