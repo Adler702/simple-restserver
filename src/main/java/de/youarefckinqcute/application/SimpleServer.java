@@ -14,14 +14,25 @@ import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.util.Scanner;
 
+/**
+ * The type Simple server.
+ */
 @Getter
 public class SimpleServer {
 
+    /**
+     * The constant GSON.
+     */
     public static final Gson GSON = new GsonBuilder().setLenient().setPrettyPrinting().create();
     private final MongoConnection mongoConnection;
     private final AccessProvider accessProvider;
     private Config config;
 
+    /**
+     * Instantiates a new Simple server.
+     *
+     * @throws IOException the io exception
+     */
     public SimpleServer() throws IOException {
         loadConfig();
         this.mongoConnection = new MongoConnection(this);

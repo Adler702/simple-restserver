@@ -18,11 +18,19 @@ import java.io.InputStreamReader;
 import java.io.OutputStreamWriter;
 import java.util.HashMap;
 
+/**
+ * The type Rest handler.
+ */
 @Getter
 public class RestHandler implements HttpHandler {
 
     private final SimpleServer simpleServer;
 
+    /**
+     * Instantiates a new Rest handler.
+     *
+     * @param simpleServer the simple server
+     */
     public RestHandler(SimpleServer simpleServer) {
         this.simpleServer = simpleServer;
     }

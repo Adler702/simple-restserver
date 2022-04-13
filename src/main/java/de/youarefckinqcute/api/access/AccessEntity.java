@@ -6,14 +6,26 @@ import lombok.Getter;
 import java.util.List;
 import java.util.Map;
 
+/**
+ * The type Access entity.
+ */
 @Getter
 public class AccessEntity {
 
-    // bsp "ranksystem"
+    /**
+     * The Name.
+     */
+// bsp "ranksystem"
     String name;
-    // bsp ""
+    /**
+     * The Key.
+     */
+// bsp ""
     String key;
-    // databaseName, Map<collectionName,methodlist>
+    /**
+     * The Granted.
+     */
+// databaseName, Map<collectionName,methodlist>
     Map<String, Map<String, List<String>>> granted;
 
 }
