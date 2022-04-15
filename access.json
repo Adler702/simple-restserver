@@ -1,0 +1,28 @@
+[
+  {
+    "name": "usersgetter",
+    "key": "ACCESS-KEY",
+    "granted": {
+      "users": {
+        "usernames": [
+          "find",
+          "findmany"
+        ]
+      }
+    }
+  },
+  {
+    "name": "usersmanager",
+    "key": "ACCESS-KEY",
+    "granted": {
+      "users": {
+        "usernames": [
+          "delete",
+          "insert",
+          "update",
+          "deletemany"
+        ]
+      }
+    }
+  }
+]

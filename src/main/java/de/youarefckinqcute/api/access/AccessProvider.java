@@ -1,9 +1,13 @@
 // Created by Torben R.
 package de.youarefckinqcute.api.access;
 
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
 import de.youarefckinqcute.application.SimpleServer;
 
-import java.util.ArrayList;
+import java.io.File;
+import java.io.FileReader;
+import java.io.IOException;
 import java.util.List;
 
 /**
@@ -11,21 +15,24 @@ import java.util.List;
  */
 public class AccessProvider {
 
+    private static final Gson GSON = new GsonBuilder().setPrettyPrinting().setLenient().create();
+
     private final SimpleServer simpleServer;
+
+    List<AccessEntity> entities;
 
     /**
      * Instantiates a new Access provider.
      *
      * @param simpleServer the simple server
      */
-    public AccessProvider(SimpleServer simpleServer) {
-        this.simpleServer = simpleServer;
-    }
+    public AccessProvider(SimpleServer simpleServer) throws IOException {
 
-    /**
-     * DONT FORGET TO LOAD THE ENTITES IN DER CONFIG
-     */
-    static List<AccessEntity> entities = new ArrayList<>();
+        this.simpleServer = simpleServer;
+        File file = new File("access.json");
+        if (!file.exists()) file.createNewFile();
+        entities = GSON.fromJson(new FileReader(file), List.class);
+    }
 
     /**
      * Check boolean.
