@@ -29,5 +29,8 @@ public class Config {
      * The Mongo password.
      */
     String mongoPassword = "password";
-
+    /**
+     * The Check access.
+     */
+    boolean checkAccess = true;
 }

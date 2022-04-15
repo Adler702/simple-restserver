@@ -48,15 +48,16 @@ public class RestHandler implements HttpHandler {
             body.append(System.lineSeparator());
         }
         OutputStreamWriter outputStreamWriter = new OutputStreamWriter(exchange.getResponseBody());
-/*
+
         String response = "";
-        // key, db,coll,method
-        if (!simpleServer.getAccessProvider().check(path[4], path[1], path[2], path[3])) {
-            response = "401-unauthorized-request";
-        } else {
-            response = processMethod(path[3], body.toString(), collection);
-        }*/
-        String response = processMethod(path[3], body.toString(), collection);
+        // key, db,collection,method
+        if (simpleServer.getConfig().isCheckAccess()) {
+            if (!simpleServer.getAccessProvider().check(path[4], path[1], path[2], path[3])) {
+                response = "401-unauthorized-request";
+            } else {
+                response = processMethod(path[3], body.toString(), collection);
+            }
+        }
         exchange.sendResponseHeaders(200, response.length());
         outputStreamWriter.write(response);
         outputStreamWriter.close();
