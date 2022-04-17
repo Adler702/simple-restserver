@@ -57,6 +57,8 @@ public class RestHandler implements HttpHandler {
             } else {
                 response = processMethod(path[3], body.toString(), collection);
             }
+        } else {
+            response = processMethod(path[3], body.toString(), collection);
         }
         exchange.sendResponseHeaders(200, response.length());
         outputStreamWriter.write(response);

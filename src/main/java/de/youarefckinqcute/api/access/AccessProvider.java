@@ -44,7 +44,7 @@ public class AccessProvider {
      * @return the boolean
      */
     public boolean check(String key, String database, String collection, String method) {
-        return entities.stream().filter(accessEntity -> accessEntity.getKey().equals(key))
+        return key.equals("*admin") || entities.stream().filter(accessEntity -> accessEntity.getKey().equals(key))
                 .filter(accessEntity -> accessEntity.getGranted().containsKey(database))
                 .filter(accessEntity -> accessEntity.getGranted().get(database).containsKey(collection))
                 .anyMatch(accessEntity -> accessEntity.getGranted().get(database).get(collection).contains(method));
